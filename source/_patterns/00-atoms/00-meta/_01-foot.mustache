@@ -1,0 +1,53 @@
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="../../js/jquery.columnizer.js"></script>
+	<script src="../../js/slick.min.js"></script>
+	<script>
+		$(document).ready(function(){
+
+			$('ul.tabs li').click(function(){
+				var tab_id = $(this).attr('data-tab');
+
+				$('ul.tabs li').removeClass('current');
+				$('.tab-content').removeClass('current');
+
+				$(this).addClass('current');
+				$("#"+tab_id).addClass('current');
+			})
+
+			$('#tab-content-1, #tab-content-2').columnize({
+				columns: 2,
+				doneFunc: function(){
+					$('.tab-content').css("display", "none");
+					$('.tab-content.current').css("display", "inherit");
+				}
+			});
+
+			$('#footer-links').columnize({
+				columns: 3,
+				// doneFunc: function(){}
+			});
+
+		  $('#testimonials').slick({
+		  	prevArrow: '<span class="slick-prev" style="display: block;"></span>',
+		  	nextArrow: '<span class="slick-next" style="display: block;"></span>'
+			});
+
+		})
+		$(document).click(function() {
+	    if ($('body').hasClass('nav-open')) {
+	    	$('body').removeClass('nav-open');
+	    }
+		});
+
+		$("#nav-toggle").click(function(event) {
+		    event.stopPropagation();
+		    $('body').toggleClass("nav-open");
+		});
+	</script>
+
+	<!-- Begin Pattern Lab JS -->
+	{% pattern-lab-foot %}
+	<!-- End Pattern Lab JS -->
+
+	</body>
+</html>

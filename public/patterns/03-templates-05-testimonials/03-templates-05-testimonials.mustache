@@ -1,0 +1,39 @@
+{{&gt; organisms-header }}
+
+&lt;div class=&quot;content-wrap&quot;&gt;
+	&lt;div class=&quot;page-content page-content--aside&quot;&gt;
+		&lt;h1&gt;Page Title&lt;/h1&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;content-wrap&quot;&gt;
+	&lt;div class=&quot;page-content page-content--separator&quot;&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare mauris nec arcu scelerisque, in rhoncus massa pharetra. Morbi iaculis, sapien vitae rhoncus laoreet, lorem ligula pharetra libero, et tempus metus mauris eget quam.&lt;/p&gt;
+		&lt;p&gt;&lt;a class=&quot;btn btn--small&quot; href=&quot;&quot;&gt;Sumbit A Testimonial&lt;/a&gt;&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;content-wrap&quot;&gt;
+	&lt;div class=&quot;page-content&quot;&gt;
+		&lt;div class=&quot;testimonials testimonials-candidate&quot;&gt;
+			&lt;h1&gt;Page Title&lt;/h1&gt;
+			{{# listItems.three }}
+    	{{&gt; molecules-testimonial }}
+    	{{/ listItems.three }}
+		&lt;/div&gt;
+		&lt;div class=&quot;testimonials testimonials-employer&quot;&gt;
+			&lt;h1&gt;Page Title&lt;/h1&gt;
+			{{# listItems.three }}
+    	{{&gt; molecules-testimonial }}
+    	{{/ listItems.three }}
+		&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;testimonial-sumbit&quot;&gt;
+  &lt;div class=&quot;content-wrap&quot;&gt;
+    &lt;h1&gt;Submit A Testimonial&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+{{&gt; organisms-footer }}

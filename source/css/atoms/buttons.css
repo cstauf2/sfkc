@@ -1,0 +1,33 @@
+.btn {
+	font-size: 1rem;
+	vertical-align: top;
+	display: inline-block;
+	color: var(--color-purple);
+	background: var(--color-yellow);
+	font-weight: bold;
+	border-radius: .25rem;
+	text-transform: uppercase;
+	width: 100%;
+	text-align: center;
+}
+
+.btn--link {
+	padding: .75rem 0;
+	color: var(--color-grey-dark);
+	background: none;
+	font-weight: normal;
+}
+
+.btn--small {
+	padding: .75rem 2rem;
+}
+
+.btn--large {
+	padding: 1.5rem;
+}
+
+@media (--sm) {
+	.btn {
+		width: auto;
+	}
+}

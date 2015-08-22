@@ -1,0 +1,49 @@
+.scholarship-winner {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 1rem;
+}
+.scholarship-winner__img {
+	margin-bottom: 1rem;
+	img {
+    width: 14rem;
+    margin: 0 auto;
+		border-radius: 10rem;
+	}
+}
+.scholarship-winner__desc {
+
+}
+
+@media (--sm) {
+	.scholarship-winner {
+		flex-direction: row;
+		margin-bottom: 2rem;
+	}
+	.scholarship-winner__img {
+		width: 30%;
+		float: left;
+		margin-bottom: 0;
+		img {
+			width: 100%;
+		}
+	}
+	.scholarship-winner__desc {
+		width: 70%;
+		float: left;
+		align-self: center;
+		padding-left: 1rem;
+	}
+}
+
+@media (--lg) {
+	.scholarship-winner {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	.scholarship-winner__desc {
+		padding-left: 3rem;
+	}
+}

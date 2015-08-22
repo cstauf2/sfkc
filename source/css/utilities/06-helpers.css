@@ -1,0 +1,6 @@
+.no-list {
+	list-style: none;
+	li {
+		float: left;
+	}
+}

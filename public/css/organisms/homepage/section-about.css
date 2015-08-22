@@ -1,0 +1,31 @@
+.section-about {
+	position: relative;
+	padding: 4rem 0 28rem 0;
+	background: url('../images/section-about-bg.jpg') no-repeat 50% 50%;
+	background-size: cover;
+	.content-wrap {
+		text-align: center;
+	}
+	p {
+		max-width: 44rem;
+		margin: 2.5rem auto 3rem auto;
+	}
+}
+.section-about__names {
+	display: none;
+  position: absolute;
+  width: 56%;
+  left: 50%;
+  transform: translate(-48%,0);
+  bottom: 48%;
+	li {
+		width: 20%;
+		text-align: center;
+	}
+}
+
+@media (--md) {
+	.section-about__names {
+		display: block;
+	}
+}

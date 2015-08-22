@@ -1,0 +1,66 @@
+.contact-page .page-content--aside {
+	padding-bottom: 1rem;
+}
+.contact-page .content-wrap {
+		.page-content--last {
+			padding-top: 2rem;
+		}
+}
+#staffing-kc {
+	height: 20rem;
+	width: 100%;
+}
+.gm-style-iw * {
+    display: block;
+}
+.gm-style-iw h4, .gm-style-iw p {
+    color: var(--color-black);
+    position: relative;
+}
+.gm-style-iw a {
+    color: var(--color-black);
+}
+.gm-style-iw p {
+	&:after {
+		position: absolute;
+		content: "";
+		top: 8px; left: 0;
+		width: 27px;
+		height: 32px;
+	}
+}
+.map-marker__email {
+  margin: 0;
+  padding: .5rem 0;
+  padding-left: 2.5rem;
+  padding-bottom: 0;
+	&:after {
+		background: url('../images/map-markers.png') no-repeat 0 0;
+	}
+}
+.map-marker__phone {
+  padding: .5rem 0;
+  padding-left: 2.5rem;
+	&:after {
+		background: url('../images/map-markers.png') no-repeat 0 50%;
+	}
+}
+.map-marker__desc {
+	margin: 0;
+  padding: .5rem 0;
+  padding-left: 2.5rem;
+  padding-bottom: 0;
+	&:after {
+		background: url('../images/map-markers.png') no-repeat 0 100%;
+	}
+}
+.gm-style-iw + div {
+	display: none;
+}
+
+@media (--lg) {
+	#staffing-kc {
+		width: 100%;
+		height: 23.75rem;
+	}
+}

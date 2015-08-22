@@ -1,0 +1,81 @@
+{{&gt; organisms-header }}
+
+&lt;div class=&quot;content-wrap&quot;&gt;
+	&lt;div class=&quot;page-content page-content--aside&quot;&gt;
+		&lt;h1&gt;Page Title&lt;/h1&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;contact-map&quot;&gt;
+&lt;script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBH6NeVbZSnJmXklxEB4dXQowMecRsdYwc&amp;sensor=false&amp;extension=.js'&gt;&lt;/script&gt;
+
+&lt;script&gt;
+    google.maps.event.addDomListener(window, 'load', init);
+    var map;
+    function init() {
+        var mapOptions = {
+            center: new google.maps.LatLng(38.930437,-94.703001),
+            zoom: 15,
+            zoomControl: false,
+            disableDoubleClickZoom: false,
+            mapTypeControl: false,
+            scaleControl: false,
+            scrollwheel: false,
+            panControl: false,
+            streetViewControl: false,
+            draggable : true,
+            overviewMapControl: false,
+            overviewMapControlOptions: {
+                opened: false,
+            },
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            // styles: [{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#7fc8ed&quot;},{&quot;saturation&quot;:55},{&quot;lightness&quot;:-6},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;water&quot;,&quot;elementType&quot;:&quot;labels&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#7fc8ed&quot;},{&quot;saturation&quot;:55},{&quot;lightness&quot;:-6},{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;poi.park&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#83cead&quot;},{&quot;saturation&quot;:1},{&quot;lightness&quot;:-15},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#f3f4f4&quot;},{&quot;saturation&quot;:-84},{&quot;lightness&quot;:59},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;landscape&quot;,&quot;elementType&quot;:&quot;labels&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#ffffff&quot;},{&quot;saturation&quot;:-100},{&quot;lightness&quot;:100},{&quot;visibility&quot;:&quot;off&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#ffffff&quot;},{&quot;saturation&quot;:-100},{&quot;lightness&quot;:100},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road&quot;,&quot;elementType&quot;:&quot;labels&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#bbbbbb&quot;},{&quot;saturation&quot;:-100},{&quot;lightness&quot;:26},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;road.arterial&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#ffcc00&quot;},{&quot;saturation&quot;:100},{&quot;lightness&quot;:-35},{&quot;visibility&quot;:&quot;simplified&quot;}]},{&quot;featureType&quot;:&quot;road.highway&quot;,&quot;elementType&quot;:&quot;geometry&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#ffcc00&quot;},{&quot;saturation&quot;:100},{&quot;lightness&quot;:-22},{&quot;visibility&quot;:&quot;on&quot;}]},{&quot;featureType&quot;:&quot;poi.school&quot;,&quot;elementType&quot;:&quot;all&quot;,&quot;stylers&quot;:[{&quot;hue&quot;:&quot;#d7e4e4&quot;},{&quot;saturation&quot;:-60},{&quot;lightness&quot;:23},{&quot;visibility&quot;:&quot;on&quot;}]}],
+        }
+        var mapElement = document.getElementById('staffing-kc');
+        var map = new google.maps.Map(mapElement, mapOptions);
+        var locations = [
+['Test Title', '9930 College Boulevard, Overland Park, KS 66210', '913.663.5627', 'info@staffingkc.com', 'http://test.com', 38.9283066, -94.6982999, 'https://mapbuildr.com/assets/img/markers/.png']
+        ];
+        for (i = 0; i &lt; locations.length; i++) {
+			if (locations[i][1] =='undefined'){ description ='';} else { description = locations[i][1];}
+			if (locations[i][2] =='undefined'){ telephone ='';} else { telephone = locations[i][2];}
+			if (locations[i][3] =='undefined'){ email ='';} else { email = locations[i][3];}
+           if (locations[i][4] =='undefined'){ web ='';} else { web = locations[i][4];}
+           if (locations[i][7] =='undefined'){ markericon ='';} else { markericon = locations[i][7];}
+            marker = new google.maps.Marker({
+                icon: markericon,
+                position: new google.maps.LatLng(locations[i][5], locations[i][6]),
+                map: map,
+                title: locations[i][0],
+                desc: description,
+                tel: telephone,
+                email: email,
+                web: web
+            });
+if (web.substring(0, 7) != &quot;http://&quot;) {
+link = &quot;http://&quot; + web;
+} else {
+link = web;
+}
+            bindInfoWindow(marker, map, locations[i][0], description, telephone, email, web, link);
+     }
+ function bindInfoWindow(marker, map, title, desc, telephone, email, web, link) {
+
+				iw = new google.maps.InfoWindow();
+        var html= &quot;&lt;div class='map-marker' style='color: #000;background-color: #fff;padding: .5rem;width: 17rem;font-size: 1.25rem;'&gt;&lt;p class='map-marker__email'&gt;&lt;a href='mailto:&quot;+email+&quot;' &gt;&quot;+email+&quot;&lt;/a&gt;&lt;/p&gt;&lt;p class='map-marker__phone'&gt;&lt;a href='tel:19136635627' &gt;&quot;+telephone+&quot;&lt;/p&gt;&lt;p class='map-marker__desc'&gt;&quot;+desc+&quot;&lt;/p&gt;&lt;/div&gt;&quot;;
+				iw = new google.maps.InfoWindow({content:html});
+        iw.open(map,marker);
+
+ }
+}
+&lt;/script&gt;
+&lt;div id='staffing-kc'&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;content-wrap&quot;&gt;
+	&lt;div class=&quot;page-content page-content--last&quot;&gt;
+		&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ornare mauris nec arcu scelerisque, in rhoncus massa pharetra. Morbi iaculis, sapien vitae rhoncus laoreet, lorem ligula pharetra libero, et tempus metus mauris eget quam. Cras blandit sodales interdum. Morbi dapibus felis eu mi scelerisque dapibus non eu tortor. Proin pellentesque lacus ac lacinia viverra. Nullam augue arcu, condimentum id enim sed, ullamcorper mollis mauris. In sodales, dolor ut hendrerit pharetra, nisi turpis accumsan leo, commodo imperdiet magna enim quis lacus. Pellentesque iaculis euismod dignissim. Curabitur sit amet malesuada neque, at suscipit odio. Aliquam erat volutpat. Vivamus at nunc sit amet magna ultrices auctor. Duis vestibulum, nibh vel porta placerat, elit quam tincidunt nulla, rutrum condimentum tellus leo malesuada ante. Sed rhoncus nisl vel orci mollis ultricies ut vel nulla. Mauris gravida elit a turpis efficitur auctor. Phasellus eget tempor augue, id aliquam turpis. Proin viverra enim ut tellus laoreet tristique.&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+
+{{&gt; organisms-footer }}
